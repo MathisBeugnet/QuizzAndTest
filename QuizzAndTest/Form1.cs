@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizzAndTest.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,16 +18,16 @@ namespace QuizzAndTest
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(153, 180, 209);
-            comboBox1.Items.Add("Facile"); comboBox1.Items.Add("Moyen"); comboBox1.Items.Add("Difficile"); comboBox1.Items.Add("Enfer");
+            cb_difficulte.Items.Add("Facile"); cb_difficulte.Items.Add("Moyen"); cb_difficulte.Items.Add("Difficile"); cb_difficulte.Items.Add("Enfer");
         }
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
-            if (txt_nom.Text != "" && txt_prenom.Text != "")
+            if (txt_nom.Text != "" && txt_prenom.Text != "" && cb_difficulte.SelectedIndex > -1)
             {
-                txt_nom.Text = "";
-                txt_prenom.Text = "";
-                comboBox1.SelectedIndex = -1;
+                Jeu J = new Jeu();
+                J.Show();
+                this.Hide();
             }
             else
             {
@@ -35,14 +36,10 @@ namespace QuizzAndTest
             
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == "Enfer")
+            if (cb_difficulte.SelectedItem.ToString() == "Enfer")
             {
                 this.BackColor = Color.Red;
                 lbl_nom.Font = new Font(lbl_nom.Font, FontStyle.Bold);
@@ -57,5 +54,6 @@ namespace QuizzAndTest
                 lbl_difficulté.Font = new Font(lbl_difficulté.Font, FontStyle.Regular);
             }
         }
+
     }
 }

@@ -34,7 +34,7 @@
             this.txt_nom = new System.Windows.Forms.TextBox();
             this.txt_prenom = new System.Windows.Forms.TextBox();
             this.lbl_difficulté = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_difficulte = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_valider
@@ -64,7 +64,6 @@
             this.lbl_prenom.Size = new System.Drawing.Size(43, 13);
             this.lbl_prenom.TabIndex = 4;
             this.lbl_prenom.Text = "Prénom";
-            this.lbl_prenom.Click += new System.EventHandler(this.label2_Click);
             // 
             // txt_nom
             // 
@@ -89,22 +88,22 @@
             this.lbl_difficulté.TabIndex = 7;
             this.lbl_difficulté.Text = "Difficulté";
             // 
-            // comboBox1
+            // cb_difficulte
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(307, 263);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 21);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cb_difficulte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_difficulte.FormattingEnabled = true;
+            this.cb_difficulte.Location = new System.Drawing.Point(307, 263);
+            this.cb_difficulte.Name = "cb_difficulte";
+            this.cb_difficulte.Size = new System.Drawing.Size(167, 21);
+            this.cb_difficulte.TabIndex = 8;
+            this.cb_difficulte.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_difficulte);
             this.Controls.Add(this.lbl_difficulté);
             this.Controls.Add(this.txt_prenom);
             this.Controls.Add(this.txt_nom);
@@ -125,7 +124,7 @@
         private System.Windows.Forms.TextBox txt_nom;
         private System.Windows.Forms.TextBox txt_prenom;
         private System.Windows.Forms.Label lbl_difficulté;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_difficulte;
     }
 }
 

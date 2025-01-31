@@ -36,11 +36,11 @@
             this.Titre = new System.Windows.Forms.Label();
             this.btn_valider = new System.Windows.Forms.Button();
             this.gb1 = new System.Windows.Forms.GroupBox();
-            this.rep1 = new System.Windows.Forms.CheckBox();
-            this.rep2 = new System.Windows.Forms.CheckBox();
-            this.rep3 = new System.Windows.Forms.CheckBox();
-            this.rep4 = new System.Windows.Forms.CheckBox();
             this.rep5 = new System.Windows.Forms.CheckBox();
+            this.rep4 = new System.Windows.Forms.CheckBox();
+            this.rep3 = new System.Windows.Forms.CheckBox();
+            this.rep2 = new System.Windows.Forms.CheckBox();
+            this.rep1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.gb1.SuspendLayout();
             this.SuspendLayout();
@@ -82,9 +82,11 @@
             // 
             // pb1
             // 
+            this.pb1.Image = global::QuizzAndTest.Properties.Resources.Interrogation;
             this.pb1.Location = new System.Drawing.Point(622, 139);
             this.pb1.Name = "pb1";
             this.pb1.Size = new System.Drawing.Size(174, 115);
+            this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb1.TabIndex = 4;
             this.pb1.TabStop = false;
             // 
@@ -106,6 +108,7 @@
             this.btn_valider.TabIndex = 6;
             this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = true;
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // gb1
             // 
@@ -121,35 +124,15 @@
             this.gb1.TabStop = false;
             this.gb1.Text = "Réponses possibles";
             // 
-            // rep1
+            // rep5
             // 
-            this.rep1.AutoSize = true;
-            this.rep1.Location = new System.Drawing.Point(36, 26);
-            this.rep1.Name = "rep1";
-            this.rep1.Size = new System.Drawing.Size(78, 17);
-            this.rep1.TabIndex = 0;
-            this.rep1.Text = "Réponse 1";
-            this.rep1.UseVisualStyleBackColor = true;
-            // 
-            // rep2
-            // 
-            this.rep2.AutoSize = true;
-            this.rep2.Location = new System.Drawing.Point(36, 50);
-            this.rep2.Name = "rep2";
-            this.rep2.Size = new System.Drawing.Size(78, 17);
-            this.rep2.TabIndex = 1;
-            this.rep2.Text = "Réponse 2";
-            this.rep2.UseVisualStyleBackColor = true;
-            // 
-            // rep3
-            // 
-            this.rep3.AutoSize = true;
-            this.rep3.Location = new System.Drawing.Point(36, 74);
-            this.rep3.Name = "rep3";
-            this.rep3.Size = new System.Drawing.Size(78, 17);
-            this.rep3.TabIndex = 2;
-            this.rep3.Text = "Réponse 3";
-            this.rep3.UseVisualStyleBackColor = true;
+            this.rep5.AutoSize = true;
+            this.rep5.Location = new System.Drawing.Point(36, 122);
+            this.rep5.Name = "rep5";
+            this.rep5.Size = new System.Drawing.Size(78, 17);
+            this.rep5.TabIndex = 4;
+            this.rep5.Text = "Réponse 5";
+            this.rep5.UseVisualStyleBackColor = true;
             // 
             // rep4
             // 
@@ -161,15 +144,36 @@
             this.rep4.Text = "Réponse 4";
             this.rep4.UseVisualStyleBackColor = true;
             // 
-            // rep5
+            // rep3
             // 
-            this.rep5.AutoSize = true;
-            this.rep5.Location = new System.Drawing.Point(36, 122);
-            this.rep5.Name = "rep5";
-            this.rep5.Size = new System.Drawing.Size(78, 17);
-            this.rep5.TabIndex = 4;
-            this.rep5.Text = "Réponse 5";
-            this.rep5.UseVisualStyleBackColor = true;
+            this.rep3.AutoSize = true;
+            this.rep3.Location = new System.Drawing.Point(36, 74);
+            this.rep3.Name = "rep3";
+            this.rep3.Size = new System.Drawing.Size(78, 17);
+            this.rep3.TabIndex = 2;
+            this.rep3.Text = "Réponse 3";
+            this.rep3.UseVisualStyleBackColor = true;
+            // 
+            // rep2
+            // 
+            this.rep2.AutoSize = true;
+            this.rep2.Location = new System.Drawing.Point(36, 50);
+            this.rep2.Name = "rep2";
+            this.rep2.Size = new System.Drawing.Size(78, 17);
+            this.rep2.TabIndex = 1;
+            this.rep2.Text = "Réponse 2";
+            this.rep2.UseVisualStyleBackColor = true;
+            // 
+            // rep1
+            // 
+            this.rep1.AutoSize = true;
+            this.rep1.Location = new System.Drawing.Point(36, 26);
+            this.rep1.Name = "rep1";
+            this.rep1.Size = new System.Drawing.Size(78, 17);
+            this.rep1.TabIndex = 0;
+            this.rep1.Text = "Réponse 1";
+            this.rep1.UseVisualStyleBackColor = true;
+            this.rep1.Click += new System.EventHandler(this.rep_Click);
             // 
             // Jeu
             // 
@@ -186,7 +190,6 @@
             this.Controls.Add(this.lbl_question);
             this.Name = "Jeu";
             this.Text = "Jeu";
-            this.Load += new System.EventHandler(this.Jeu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             this.gb1.ResumeLayout(false);
             this.gb1.PerformLayout();
