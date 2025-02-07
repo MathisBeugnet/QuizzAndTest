@@ -133,6 +133,7 @@
             this.rep5.TabIndex = 4;
             this.rep5.Text = "Réponse 5";
             this.rep5.UseVisualStyleBackColor = true;
+            this.rep5.Click += new System.EventHandler(this.rep5_Click);
             // 
             // rep4
             // 
@@ -143,6 +144,7 @@
             this.rep4.TabIndex = 3;
             this.rep4.Text = "Réponse 4";
             this.rep4.UseVisualStyleBackColor = true;
+            this.rep4.Click += new System.EventHandler(this.rep4_Click);
             // 
             // rep3
             // 
@@ -153,6 +155,7 @@
             this.rep3.TabIndex = 2;
             this.rep3.Text = "Réponse 3";
             this.rep3.UseVisualStyleBackColor = true;
+            this.rep3.Click += new System.EventHandler(this.rep3_Click);
             // 
             // rep2
             // 
@@ -163,6 +166,7 @@
             this.rep2.TabIndex = 1;
             this.rep2.Text = "Réponse 2";
             this.rep2.UseVisualStyleBackColor = true;
+            this.rep2.Click += new System.EventHandler(this.rep2_Click);
             // 
             // rep1
             // 
@@ -173,7 +177,7 @@
             this.rep1.TabIndex = 0;
             this.rep1.Text = "Réponse 1";
             this.rep1.UseVisualStyleBackColor = true;
-            this.rep1.Click += new System.EventHandler(this.rep_Click);
+            this.rep1.Click += new System.EventHandler(this.rep1_Click);
             // 
             // Jeu
             // 

@@ -66,9 +66,9 @@ namespace QuizzAndTest.Model
 
         }
 
-        public void changerQuestion(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage)
+        public void changerQuestion(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label lbl_question)
         {
-            if (numQuestion <= nbQuestion)
+            if (nbQuestion != numQuestion)
             {
                 aleatoireReponse(txt_affichage, gd_reponse);
                 ckb_reponse1.Checked = false;
@@ -80,7 +80,7 @@ namespace QuizzAndTest.Model
             }
             else
             {
-                //appel de la méthode de fin de partie qui sera réalisé plus tard
+                FinDePartie(txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, lbl_question);
             }
         }
         private void aleatoireReponse(TextBox txt_affichage, GroupBox gd_reponse)
@@ -139,5 +139,23 @@ namespace QuizzAndTest.Model
             return null;
         }
 
+        private void FinDePartie(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label lbl_question)
+        {
+            DialogResult msg;
+            msg = MessageBox.Show("Votre score est de " + score + ".\r\n Voulez vous rejouer", "Fin de la partie", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            if (msg == DialogResult.Yes)
+            {
+                score = 0;
+                numQuestion = 0;
+                changerQuestion(txt_affichage,ckb_reponse1,ckb_reponse2,ckb_reponse3,ckb_reponse4,ckb_reponse5,formulaire,gd_reponse,PbImage,lbl_question);
+
+            }
+            else
+            {
+                Form1 Accueil = new Form1();
+                Accueil.Show();
+                formulaire.Hide();
+            }
+        }
     }
 }
