@@ -25,7 +25,7 @@ namespace QuizzAndTest
         {
             if (txt_nom.Text != "" && txt_prenom.Text != "" && cb_difficulte.SelectedIndex > -1)
             {
-                Jeu J = new Jeu();
+                Jeu J = new Jeu(txt_nom.Text,txt_prenom.Text,cb_difficulte.SelectedItem.ToString());
                 J.Show();
                 this.Hide();
             }

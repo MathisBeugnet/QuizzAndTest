@@ -17,7 +17,7 @@ namespace QuizzAndTest
 
         Partie partie;
 
-        public Jeu()
+        private void Init()
         {
             InitializeComponent();
             List<Question> ListeQuestions = new List<Question>();
@@ -33,8 +33,15 @@ namespace QuizzAndTest
             ListeQuestions.Add(new Question("Quelle est la capitale de l'Autriche ?", 5, 1, "Bruxelles", "Berne", "Luxembourg", "Lisbonne", "Vienne"));
 
             partie = new Partie(ListeQuestions);
-            partie.changerQuestion(tb_question,rep1,rep2,rep3,rep4,rep5, this, gb1, pb1, lbl_question);
+            partie.changerQuestion(tb_question, rep1, rep2, rep3, rep4, rep5, this, gb1, pb1, lbl_question);
+        }
+        
 
+        public Jeu(string nomJ, string PrenomJ, string difficultePartie)
+        {
+            Init();
+            tb_joueur.Text = nomJ+" "+PrenomJ;
+            tb_difficulte.Text = difficultePartie;
         }
 
         private void btn_valider_Click(object sender, EventArgs e)
@@ -112,5 +119,6 @@ namespace QuizzAndTest
             ((CheckBox)sender).Checked = true;
             reponseQuestion = Convert.ToInt32(((CheckBox)sender).Name.Remove(0, 3));
         }
+
     }
 }

@@ -17,6 +17,9 @@ namespace QuizzAndTest.Model
         public int numReponse;
         public int numQuestion;
         public List<Question> question;
+        public string nomJoueur;
+        public string prenomJoueur;
+
 
         public Partie(List<Question> question)
         {
@@ -26,7 +29,8 @@ namespace QuizzAndTest.Model
             this.numReponse = 0;
             this.numQuestion = 0;
             this.question = question;
-
+            this.nomJoueur = "";
+            this.prenomJoueur = "";
         }
         private void changerImg(PictureBox PbImage, bool BonneReponse, bool raz)
         {

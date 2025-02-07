@@ -41,6 +41,10 @@
             this.rep3 = new System.Windows.Forms.CheckBox();
             this.rep2 = new System.Windows.Forms.CheckBox();
             this.rep1 = new System.Windows.Forms.CheckBox();
+            this.tb_joueur = new System.Windows.Forms.TextBox();
+            this.tb_difficulte = new System.Windows.Forms.TextBox();
+            this.lbl_joueur_jeu = new System.Windows.Forms.Label();
+            this.lbl_difficulte_jeu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.gb1.SuspendLayout();
             this.SuspendLayout();
@@ -179,11 +183,49 @@
             this.rep1.UseVisualStyleBackColor = true;
             this.rep1.Click += new System.EventHandler(this.rep1_Click);
             // 
+            // tb_joueur
+            // 
+            this.tb_joueur.Location = new System.Drawing.Point(622, 297);
+            this.tb_joueur.Name = "tb_joueur";
+            this.tb_joueur.ReadOnly = true;
+            this.tb_joueur.Size = new System.Drawing.Size(166, 20);
+            this.tb_joueur.TabIndex = 8;
+            // 
+            // tb_difficulte
+            // 
+            this.tb_difficulte.Location = new System.Drawing.Point(622, 358);
+            this.tb_difficulte.Name = "tb_difficulte";
+            this.tb_difficulte.ReadOnly = true;
+            this.tb_difficulte.Size = new System.Drawing.Size(166, 20);
+            this.tb_difficulte.TabIndex = 9;
+            // 
+            // lbl_joueur_jeu
+            // 
+            this.lbl_joueur_jeu.AutoSize = true;
+            this.lbl_joueur_jeu.Location = new System.Drawing.Point(622, 278);
+            this.lbl_joueur_jeu.Name = "lbl_joueur_jeu";
+            this.lbl_joueur_jeu.Size = new System.Drawing.Size(39, 13);
+            this.lbl_joueur_jeu.TabIndex = 10;
+            this.lbl_joueur_jeu.Text = "Joueur";
+            // 
+            // lbl_difficulte_jeu
+            // 
+            this.lbl_difficulte_jeu.AutoSize = true;
+            this.lbl_difficulte_jeu.Location = new System.Drawing.Point(622, 339);
+            this.lbl_difficulte_jeu.Name = "lbl_difficulte_jeu";
+            this.lbl_difficulte_jeu.Size = new System.Drawing.Size(48, 13);
+            this.lbl_difficulte_jeu.TabIndex = 11;
+            this.lbl_difficulte_jeu.Text = "Difficulté";
+            // 
             // Jeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_difficulte_jeu);
+            this.Controls.Add(this.lbl_joueur_jeu);
+            this.Controls.Add(this.tb_difficulte);
+            this.Controls.Add(this.tb_joueur);
             this.Controls.Add(this.gb1);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.Titre);
@@ -217,5 +259,9 @@
         private System.Windows.Forms.CheckBox rep3;
         private System.Windows.Forms.CheckBox rep2;
         private System.Windows.Forms.CheckBox rep1;
+        private System.Windows.Forms.TextBox tb_joueur;
+        private System.Windows.Forms.TextBox tb_difficulte;
+        private System.Windows.Forms.Label lbl_joueur_jeu;
+        private System.Windows.Forms.Label lbl_difficulte_jeu;
     }
 }
