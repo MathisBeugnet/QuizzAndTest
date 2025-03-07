@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace QuizzAndTest.Model
 {
-    internal class Partie
+    public class Partie
     {
         public int score;
         public int difficulte;
@@ -19,6 +19,10 @@ namespace QuizzAndTest.Model
         public List<Question> question;
         public string nomJoueur;
         public string prenomJoueur;
+        public int dureePartie;
+        public int dureeTQuestion;
+        public Timer timer;
+        private SousFormulaire SF;
 
 
         public Partie(List<Question> question)
@@ -70,9 +74,10 @@ namespace QuizzAndTest.Model
 
         }
 
-        public void changerQuestion(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label lbl_question)
+        public void changerQuestion(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Panel pnl_Principal)
         {
-            if (nbQuestion != numQuestion)
+
+            if (nbQuestion > numQuestion)
             {
                 aleatoireReponse(txt_affichage, gd_reponse);
                 ckb_reponse1.Checked = false;
@@ -84,7 +89,9 @@ namespace QuizzAndTest.Model
             }
             else
             {
-                FinDePartie(txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, lbl_question);
+                FinDePartie(txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, pnl_Principal);
+
+
             }
         }
         private void aleatoireReponse(TextBox txt_affichage, GroupBox gd_reponse)
@@ -143,22 +150,55 @@ namespace QuizzAndTest.Model
             return null;
         }
 
-        private void FinDePartie(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label lbl_question)
+        public void FinDePartie(TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Panel pnl_principal)
         {
             DialogResult msg;
-            msg = MessageBox.Show("Votre score est de " + score + ".\r\n Voulez vous rejouer", "Fin de la partie", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            timer.Stop();
+            SF = new SousFormulaire(pnl_principal);
+            msg = MessageBox.Show("Votre score est de " + score + ".\r\n vous avez fini la partie en " + dureePartie + " secondes.\r\n Voulez vous rejouer", "Fin de la partie"
+                , MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             if (msg == DialogResult.Yes)
             {
                 score = 0;
                 numQuestion = 0;
-                changerQuestion(txt_affichage,ckb_reponse1,ckb_reponse2,ckb_reponse3,ckb_reponse4,ckb_reponse5,formulaire,gd_reponse,PbImage,lbl_question);
-
+                dureePartie = 0;
+                changerQuestion(txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, pnl_principal);
+                changerImg(PbImage, true, true);
+                timer.Start();
             }
             else
             {
-                Form1 Accueil = new Form1();
-                Accueil.Show();
-                formulaire.Hide();
+                SF.openChildForm(new Form1());
+
+
+            }
+
+
+        }
+
+        public void gestionTimer(TextBox txt_timer, ProgressBar pb_dureeRepQuestion, TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label numQuestion, Panel pnl_principal)
+        {
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += (sender, e) => Timer_Tick(sender, e, txt_timer, pb_dureeRepQuestion, txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, numQuestion, pnl_principal);
+
+            timer.Start();
+        }
+
+        public void Timer_Tick(object sender, EventArgs e, TextBox txt_timer, ProgressBar pb_dureeRepQuestion, TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label numeroQuestion,  Panel pnl_principal)
+        {
+            dureePartie++;
+            dureeTQuestion++;
+            pb_dureeRepQuestion.Increment(1);
+            txt_timer.Text = dureePartie.ToString() + " sec";
+            if (dureeTQuestion > 15)
+            {
+                validerReponse(0, PbImage);
+                numQuestion++;
+                numeroQuestion.Text = (numQuestion + 1).ToString();
+                changerQuestion(txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, pnl_principal);
+                pb_dureeRepQuestion.Value = 0;
+                dureeTQuestion = 0;
             }
         }
     }

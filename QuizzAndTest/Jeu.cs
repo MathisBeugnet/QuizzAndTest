@@ -33,7 +33,7 @@ namespace QuizzAndTest
             ListeQuestions.Add(new Question("Quelle est la capitale de l'Autriche ?", 5, 1, "Bruxelles", "Berne", "Luxembourg", "Lisbonne", "Vienne"));
 
             partie = new Partie(ListeQuestions);
-            partie.changerQuestion(tb_question, rep1, rep2, rep3, rep4, rep5, this, gb1, pb1, lbl_question);
+            partie.changerQuestion(tb_question, rep1, rep2, rep3, rep4, rep5, this, gb1, pb1, (System.Windows.Forms.Application.OpenForms["Menu"] as Menu).pnl_SF);
         }
         
 
@@ -48,7 +48,7 @@ namespace QuizzAndTest
         {
             partie.validerReponse(reponseQuestion, pb1);
             partie.numQuestion++;
-            partie.changerQuestion(tb_question, rep1, rep2, rep3, rep4, rep5, this, gb1, pb1, lbl_question);
+            partie.changerQuestion(tb_question, rep1, rep2, rep3, rep4, rep5, this, gb1, pb1, (System.Windows.Forms.Application.OpenForms["Menu"] as Menu).pnl_SF);
             lbl_question.Text = "Question "+(partie.numQuestion + 1).ToString();
             reponseQuestion = 0;
 
@@ -120,5 +120,9 @@ namespace QuizzAndTest
             reponseQuestion = Convert.ToInt32(((CheckBox)sender).Name.Remove(0, 3));
         }
 
+        private void btn_fermer2_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

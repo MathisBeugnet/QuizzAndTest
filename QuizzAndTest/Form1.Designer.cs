@@ -35,11 +35,12 @@
             this.txt_prenom = new System.Windows.Forms.TextBox();
             this.lbl_difficulté = new System.Windows.Forms.Label();
             this.cb_difficulte = new System.Windows.Forms.ComboBox();
+            this.btn_fermer1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_valider
             // 
-            this.btn_valider.Location = new System.Drawing.Point(349, 372);
+            this.btn_valider.Location = new System.Drawing.Point(348, 331);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(75, 23);
             this.btn_valider.TabIndex = 2;
@@ -98,11 +99,22 @@
             this.cb_difficulte.TabIndex = 8;
             this.cb_difficulte.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // btn_fermer1
+            // 
+            this.btn_fermer1.Location = new System.Drawing.Point(687, 12);
+            this.btn_fermer1.Name = "btn_fermer1";
+            this.btn_fermer1.Size = new System.Drawing.Size(75, 23);
+            this.btn_fermer1.TabIndex = 9;
+            this.btn_fermer1.Text = "Fermer";
+            this.btn_fermer1.UseVisualStyleBackColor = true;
+            this.btn_fermer1.Click += new System.EventHandler(this.btn_fermer1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 385);
+            this.Controls.Add(this.btn_fermer1);
             this.Controls.Add(this.cb_difficulte);
             this.Controls.Add(this.lbl_difficulté);
             this.Controls.Add(this.txt_prenom);
@@ -110,6 +122,7 @@
             this.Controls.Add(this.lbl_prenom);
             this.Controls.Add(this.lbl_nom);
             this.Controls.Add(this.btn_valider);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -125,6 +138,7 @@
         private System.Windows.Forms.TextBox txt_prenom;
         private System.Windows.Forms.Label lbl_difficulté;
         private System.Windows.Forms.ComboBox cb_difficulte;
+        private System.Windows.Forms.Button btn_fermer1;
     }
 }
 

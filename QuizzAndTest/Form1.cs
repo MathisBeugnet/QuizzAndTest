@@ -25,8 +25,8 @@ namespace QuizzAndTest
         {
             if (txt_nom.Text != "" && txt_prenom.Text != "" && cb_difficulte.SelectedIndex > -1)
             {
-                Jeu J = new Jeu(txt_nom.Text,txt_prenom.Text,cb_difficulte.SelectedItem.ToString());
-                J.Show();
+                SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["Menu"] as Menu).pnl_SF);
+                SF.openChildForm(new Jeu(txt_nom.Text, txt_prenom.Text, cb_difficulte.SelectedItem.ToString()));
                 this.Hide();
             }
             else
@@ -55,5 +55,10 @@ namespace QuizzAndTest
             }
         }
 
+
+        private void btn_fermer1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
