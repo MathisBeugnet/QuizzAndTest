@@ -37,8 +37,20 @@ namespace QuizzAndTest.Controllers
             conn.MySqlCo = null;
             return dt;
         }
-        
+        public DataTable GetListeQuestionRecherche(string rechercheMot, int difficulte)
+        {
+            string rqtSql = "SELECT IDQUESTION,ENONCEQUESTION AS Enonce,LABELDIFFICULTE AS Difficulte FROM QUESTION INNER JOIN DIFFICULTE ON QUESTION.IDDIFFICULTE=DIFFICULTE.IDDIFFICULTE";
+            if (rechercheMot!="")
+            {
+                rqtSql += " WHERE Enonce LIKE %" + rechercheMot+"%";
 
+            }
+            if (difficulte != 0)
+            {
+                rqtSql += " WHERE Difficulte LIKE %" + difficulte + "%";
 
+            }
+            rqtSql +=";";
+        }
     }
 }
