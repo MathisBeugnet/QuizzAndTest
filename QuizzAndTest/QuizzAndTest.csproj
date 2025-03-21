@@ -113,6 +113,7 @@
     <Compile Include="affichageDonnees.Designer.cs">
       <DependentUpon>affichageDonnees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Difficulte.cs" />
     <Compile Include="Controllers\QuestionBDD.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

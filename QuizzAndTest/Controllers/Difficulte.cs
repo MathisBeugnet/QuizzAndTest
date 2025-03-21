@@ -11,34 +11,36 @@ using QuizzAndTest.Model;
 
 namespace QuizzAndTest.Controllers
 {
-    public class QuestionBDD
+    class Difficulte
     {
-
-        public DataTable GetListeQuestion()
+        public DataTable GetListeDifficulte()
         {
-            DataTable dt = new DataTable();
+            DataTable dtListeDifficulte = new DataTable();
             ConnectionBDD conn = new ConnectionBDD("192.168.10.16", "beugnet_mathis_BDD_QuizzAndTest", "beugnet_mathis", "3ikikkwF");
+
 
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT IDQUESTION,ENONCEQUESTION AS Enonce, LABELDIFFICULTE AS Difficulte FROM QUESTION INNER JOIN DIFFICULTE ON QUESTION.IDDIFFICULTE=DIFFICULTE.IDDIFFICULTE;", conn.MySqlCo))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT IDDIFFICULTE,LABELDIFFICULTE AS Difficulte FROM DIFFICULTE;", conn.MySqlCo))
                 {
                     conn.MySqlCo.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
-                    dt.Load(reader);
+                    dtListeDifficulte.Load(reader);
                 }
+                DataRow workRow = dtListeDifficulte.NewRow();
+                workRow[0] = -1;
+                workRow[1] = "";
+                dtListeDifficulte.Rows.InsertAt(workRow, 0);
+
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
             }
-
             conn.MySqlCo.Close();
             conn.MySqlCo = null;
-            return dt;
+            return dtListeDifficulte;
         }
-        
-
 
     }
 }

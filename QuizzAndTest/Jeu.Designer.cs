@@ -30,7 +30,7 @@
         {
             this.lbl_question = new System.Windows.Forms.Label();
             this.tb_question = new System.Windows.Forms.TextBox();
-            this.tb_temps = new System.Windows.Forms.TextBox();
+            this.txt_timer = new System.Windows.Forms.TextBox();
             this.lbl_temps = new System.Windows.Forms.Label();
             this.Titre = new System.Windows.Forms.Label();
             this.btn_valider = new System.Windows.Forms.Button();
@@ -69,13 +69,13 @@
             this.tb_question.Size = new System.Drawing.Size(442, 70);
             this.tb_question.TabIndex = 1;
             // 
-            // tb_temps
+            // txt_timer
             // 
-            this.tb_temps.Location = new System.Drawing.Point(598, 91);
-            this.tb_temps.Name = "tb_temps";
-            this.tb_temps.ReadOnly = true;
-            this.tb_temps.Size = new System.Drawing.Size(174, 20);
-            this.tb_temps.TabIndex = 2;
+            this.txt_timer.Location = new System.Drawing.Point(598, 91);
+            this.txt_timer.Name = "txt_timer";
+            this.txt_timer.ReadOnly = true;
+            this.txt_timer.Size = new System.Drawing.Size(174, 20);
+            this.txt_timer.TabIndex = 2;
             // 
             // lbl_temps
             // 
@@ -129,7 +129,7 @@
             this.rep5.TabIndex = 4;
             this.rep5.Text = "Réponse 5";
             this.rep5.UseVisualStyleBackColor = true;
-            this.rep5.Click += new System.EventHandler(this.rep5_Click);
+            this.rep5.Click += new System.EventHandler(this.rep1_Click);
             // 
             // rep4
             // 
@@ -140,7 +140,7 @@
             this.rep4.TabIndex = 3;
             this.rep4.Text = "Réponse 4";
             this.rep4.UseVisualStyleBackColor = true;
-            this.rep4.Click += new System.EventHandler(this.rep4_Click);
+            this.rep4.Click += new System.EventHandler(this.rep1_Click);
             // 
             // rep3
             // 
@@ -151,7 +151,7 @@
             this.rep3.TabIndex = 2;
             this.rep3.Text = "Réponse 3";
             this.rep3.UseVisualStyleBackColor = true;
-            this.rep3.Click += new System.EventHandler(this.rep3_Click);
+            this.rep3.Click += new System.EventHandler(this.rep1_Click);
             // 
             // rep2
             // 
@@ -162,7 +162,7 @@
             this.rep2.TabIndex = 1;
             this.rep2.Text = "Réponse 2";
             this.rep2.UseVisualStyleBackColor = true;
-            this.rep2.Click += new System.EventHandler(this.rep2_Click);
+            this.rep2.Click += new System.EventHandler(this.rep1_Click);
             // 
             // rep1
             // 
@@ -212,6 +212,7 @@
             // pb_dureeRepQuestion
             // 
             this.pb_dureeRepQuestion.Location = new System.Drawing.Point(598, 259);
+            this.pb_dureeRepQuestion.Maximum = 15;
             this.pb_dureeRepQuestion.Name = "pb_dureeRepQuestion";
             this.pb_dureeRepQuestion.Size = new System.Drawing.Size(174, 23);
             this.pb_dureeRepQuestion.TabIndex = 13;
@@ -252,7 +253,7 @@
             this.Controls.Add(this.Titre);
             this.Controls.Add(this.pb1);
             this.Controls.Add(this.lbl_temps);
-            this.Controls.Add(this.tb_temps);
+            this.Controls.Add(this.txt_timer);
             this.Controls.Add(this.tb_question);
             this.Controls.Add(this.lbl_question);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -270,7 +271,7 @@
 
         private System.Windows.Forms.Label lbl_question;
         private System.Windows.Forms.TextBox tb_question;
-        private System.Windows.Forms.TextBox tb_temps;
+        private System.Windows.Forms.TextBox txt_timer;
         private System.Windows.Forms.Label lbl_temps;
         private System.Windows.Forms.PictureBox pb1;
         private System.Windows.Forms.Label Titre;

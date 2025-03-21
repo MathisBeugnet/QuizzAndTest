@@ -25,15 +25,18 @@ namespace QuizzAndTest
             //Gérer la largeur des colonnes
             dgv_questions.Columns["Enonce"].Width = 190;
             //Attention il faut mettre le nom des alias à la place du nom des colonnes en cas d’utilisation d’alias dans la requête SQL.
+            Difficulte dt_listedifficulte= new Difficulte();
+            cbb_difficulte.DataSource = dt_listedifficulte.GetListeDifficulte();
+            cbb_difficulte.DisplayMember = "Difficulte";
+            cbb_difficulte.ValueMember = "IDDIFFICULTE";  
+
         }
 
-    private void fermer_Click(object sender, EventArgs e)
+        private void fermer_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
-        
-
-
+       
     }
 }
