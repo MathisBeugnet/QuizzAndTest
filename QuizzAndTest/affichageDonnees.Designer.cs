@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbb_difficulte = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_rechercheMot = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_questions)).BeginInit();
             this.gb_recherche.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             this.gb_recherche.Controls.Add(this.label2);
             this.gb_recherche.Controls.Add(this.label1);
             this.gb_recherche.Controls.Add(this.cbb_difficulte);
-            this.gb_recherche.Controls.Add(this.textBox1);
+            this.gb_recherche.Controls.Add(this.txt_rechercheMot);
             this.gb_recherche.Location = new System.Drawing.Point(410, 13);
             this.gb_recherche.Name = "gb_recherche";
             this.gb_recherche.Size = new System.Drawing.Size(276, 117);
@@ -99,13 +99,15 @@
             this.cbb_difficulte.Name = "cbb_difficulte";
             this.cbb_difficulte.Size = new System.Drawing.Size(121, 21);
             this.cbb_difficulte.TabIndex = 1;
+            this.cbb_difficulte.SelectionChangeCommitted += new System.EventHandler(this.cbb_difficulte_SelectionChangeCommitted);
             // 
-            // textBox1
+            // txt_rechercheMot
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 0;
+            this.txt_rechercheMot.Location = new System.Drawing.Point(123, 19);
+            this.txt_rechercheMot.Name = "txt_rechercheMot";
+            this.txt_rechercheMot.Size = new System.Drawing.Size(121, 20);
+            this.txt_rechercheMot.TabIndex = 0;
+            this.txt_rechercheMot.TextChanged += new System.EventHandler(this.txt_rechercheMot_TextChanged);
             // 
             // affichageDonnees
             // 
@@ -131,7 +133,7 @@
         private System.Windows.Forms.DataGridView dgv_questions;
         private System.Windows.Forms.GroupBox gb_recherche;
         private System.Windows.Forms.ComboBox cbb_difficulte;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_rechercheMot;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

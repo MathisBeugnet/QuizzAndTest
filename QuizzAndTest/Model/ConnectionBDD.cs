@@ -35,5 +35,14 @@ namespace QuizzAndTest.Model
             initConnexion();
         }
 
+        public ConnectionBDD()
+        {
+            this.serveurBDD = "192.168.10.16";
+            this.nomBDD = "beugnet_mathis_BDD_QuizzAndTest";
+            this.loginBDD = "beugnet_mathis";
+            this.mdpBDD = "3ikikkwF";
+            initConnexion();
+        }
+
     }
 }

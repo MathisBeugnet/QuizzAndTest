@@ -40,17 +40,52 @@ namespace QuizzAndTest.Controllers
         public DataTable GetListeQuestionRecherche(string rechercheMot, int difficulte)
         {
             string rqtSql = "SELECT IDQUESTION,ENONCEQUESTION AS Enonce,LABELDIFFICULTE AS Difficulte FROM QUESTION INNER JOIN DIFFICULTE ON QUESTION.IDDIFFICULTE=DIFFICULTE.IDDIFFICULTE";
-            if (rechercheMot!="")
+            if (rechercheMot != "" || difficulte != 0)
             {
-                rqtSql += " WHERE Enonce LIKE %" + rechercheMot+"%";
+                rqtSql += " WHERE ";
+                if (rechercheMot!="")
+                {
+                    rqtSql += "ENONCEQUESTION LIKE @rechercheMot";
 
-            }
-            if (difficulte != 0)
-            {
-                rqtSql += " WHERE Difficulte LIKE %" + difficulte + "%";
+                }
+                if (difficulte != 0)
+                {
+                    if (rechercheMot != "")
+                    {
+                        rqtSql += " AND ";
 
+                    }
+                    rqtSql += "DIFFICULTE.IDDIFFICULTE=@difficulte";
+
+                }
             }
             rqtSql +=";";
+            DataTable dt = new DataTable();
+            try
+            {
+                ConnectionBDD conn = new ConnectionBDD();
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.MySqlCo))
+                {
+                    conn.MySqlCo.Open();
+                    if (rechercheMot != "")
+                    {
+                        cmd.Parameters.AddWithValue("@rechercheMot", "%" + rechercheMot + "%");
+                    }
+                    if (difficulte != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@difficulte", difficulte);
+                    }
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    dt.Load(reader);
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dt;
+
         }
     }
 }
