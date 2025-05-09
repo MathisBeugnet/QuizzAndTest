@@ -23,18 +23,17 @@ namespace QuizzAndTest.Model
         public int dureeTQuestion;
         public Timer timer;
         private SousFormulaire SF;
+        List<Question> questionN = new List<Question>();
 
 
-        public Partie(List<Question> question)
+        public Partie(List<Question> questionL)
         {
-            List<Question> questionN = new List<Question>();
-            questionN=listeAleatoireQuestion(question);
             this.score = 0;
             this.difficulte = 0;
-            this.nbQuestion = questionN.Count;
+            this.nbQuestion = listeAleatoireQuestion(questionL).Count;
             this.numReponse = 0;
             this.numQuestion = 0;
-            this.question = questionN;
+            this.question = listeAleatoireQuestion(questionL);
             this.nomJoueur = "";
             this.prenomJoueur = "";
         }
@@ -161,6 +160,7 @@ namespace QuizzAndTest.Model
                 , MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             if (msg == DialogResult.Yes)
             {
+                questionN = listeAleatoireQuestion(question);
                 score = 0;
                 numQuestion = 0;
                 dureePartie = 0;
