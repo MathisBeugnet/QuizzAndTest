@@ -27,12 +27,14 @@ namespace QuizzAndTest.Model
 
         public Partie(List<Question> question)
         {
+            List<Question> questionN = new List<Question>();
+            questionN=listeAleatoireQuestion(question);
             this.score = 0;
             this.difficulte = 0;
-            this.nbQuestion = question.Count;
+            this.nbQuestion = questionN.Count;
             this.numReponse = 0;
             this.numQuestion = 0;
-            this.question = question;
+            this.question = questionN;
             this.nomJoueur = "";
             this.prenomJoueur = "";
         }
@@ -203,8 +205,23 @@ namespace QuizzAndTest.Model
             }
         }
 
-        public void dixQ(List<Question> L_Question) {
+        public List<Question> listeAleatoireQuestion(List<Question> L_Question)
+        {
+            List<Question> L_Selection = new List<Question>();
+            Random rnd = new Random();
 
+            while (L_Selection.Count < 10)
+            {
+                int randIndex = rnd.Next(L_Question.Count);
+                Question q = L_Question[randIndex];
+
+                if (!L_Selection.Contains(q))
+                {
+                    L_Selection.Add(q);
+                }
+            }
+
+            return L_Selection;
         }
     }
 }
