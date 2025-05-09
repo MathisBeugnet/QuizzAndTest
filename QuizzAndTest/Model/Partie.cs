@@ -74,7 +74,7 @@ namespace QuizzAndTest.Model
 
         }
 
-        public void changerQuestion(TextBox txt_affichage,Label lbl_question, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Panel pnl_Principal)
+        public void changerQuestion(TextBox txt_affichage, Label lbl_question, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Panel pnl_Principal)
         {
 
             if (nbQuestion > numQuestion)
@@ -89,7 +89,7 @@ namespace QuizzAndTest.Model
             }
             else
             {
-                FinDePartie(txt_affichage,lbl_question, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, pnl_Principal);
+                FinDePartie(txt_affichage, lbl_question, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, pnl_Principal);
 
 
             }
@@ -150,7 +150,7 @@ namespace QuizzAndTest.Model
             return null;
         }
 
-        public void FinDePartie(TextBox txt_affichage,Label lbl_question, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Panel pnl_principal)
+        public void FinDePartie(TextBox txt_affichage, Label lbl_question, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Panel pnl_principal)
         {
             DialogResult msg;
             timer.Stop();
@@ -181,12 +181,12 @@ namespace QuizzAndTest.Model
         {
             timer = new Timer();
             timer.Interval = 1000;
-            timer.Tick += (sender, e) => Timer_Tick(sender, e, txt_timer,lbl_question, pb_dureeRepQuestion, txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, numQuestion, pnl_principal);
+            timer.Tick += (sender, e) => Timer_Tick(sender, e, txt_timer, lbl_question, pb_dureeRepQuestion, txt_affichage, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, numQuestion, pnl_principal);
 
             timer.Start();
         }
 
-        public void Timer_Tick(object sender, EventArgs e, TextBox txt_timer,Label lbl_question, ProgressBar pb_dureeRepQuestion, TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label numeroQuestion,  Panel pnl_principal)
+        public void Timer_Tick(object sender, EventArgs e, TextBox txt_timer, Label lbl_question, ProgressBar pb_dureeRepQuestion, TextBox txt_affichage, CheckBox ckb_reponse1, CheckBox ckb_reponse2, CheckBox ckb_reponse3, CheckBox ckb_reponse4, CheckBox ckb_reponse5, Form formulaire, GroupBox gd_reponse, PictureBox PbImage, Label numeroQuestion, Panel pnl_principal)
         {
             dureePartie++;
             dureeTQuestion++;
@@ -196,11 +196,15 @@ namespace QuizzAndTest.Model
             {
                 validerReponse(0, PbImage);
                 numQuestion++;
-                numeroQuestion.Text =  "Question " + (numQuestion + 1).ToString();
+                numeroQuestion.Text = "Question " + (numQuestion + 1).ToString();
                 changerQuestion(txt_affichage, lbl_question, ckb_reponse1, ckb_reponse2, ckb_reponse3, ckb_reponse4, ckb_reponse5, formulaire, gd_reponse, PbImage, pnl_principal);
                 pb_dureeRepQuestion.Value = 0;
                 dureeTQuestion = 0;
             }
+        }
+
+        public void dixQ(List<Question> L_Question) {
+
         }
     }
 }

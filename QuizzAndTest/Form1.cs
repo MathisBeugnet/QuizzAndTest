@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using QuizzAndTest.Controllers;
 
 namespace QuizzAndTest
 {
@@ -18,22 +18,26 @@ namespace QuizzAndTest
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(153, 180, 209);
-            cb_difficulte.Items.Add("Facile"); cb_difficulte.Items.Add("Moyen"); cb_difficulte.Items.Add("Difficile"); cb_difficulte.Items.Add("Enfer");
+            Difficulte dt_listeDifficulte = new Difficulte();
+            cb_difficulte.DataSource = dt_listeDifficulte.GetListeDifficulte();
+            cb_difficulte.DisplayMember = "Difficulte";
+            cb_difficulte.ValueMember = "IDDIFFICULTE";
         }
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
+            int difficultePartie = Convert.ToInt32(cb_difficulte.SelectedIndex.ToString());
             if (txt_nom.Text != "" && txt_prenom.Text != "" && cb_difficulte.SelectedIndex > -1)
             {
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["Menu"] as Menu).pnl_SF);
-                SF.openChildForm(new Jeu(txt_nom.Text, txt_prenom.Text, cb_difficulte.SelectedItem.ToString()));
+                SF.openChildForm(new Jeu(txt_nom.Text, txt_prenom.Text, difficultePartie));
                 this.Hide();
             }
             else
             {
                 MessageBox.Show("Aucun nom ou prenom n'est rentré", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
 
 
@@ -60,5 +64,7 @@ namespace QuizzAndTest
         {
             this.Hide();
         }
+
+        
     }
 }

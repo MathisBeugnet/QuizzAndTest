@@ -18,7 +18,7 @@ namespace QuizzAndTest
             InitializeComponent();
             DataView dv;
             QuestionBDD dt_listeQuestions = new QuestionBDD();
-            dv = new DataView(dt_listeQuestions.GetListeQuestion());
+            dv = new DataView(dt_listeQuestions.GetListeQuestionRecherche(txt_rechercheMot.Text,cbb_difficulte.SelectedIndex));
             dgv_questions.DataSource = dv;
             //Cacher les colonnes qui ne servent à rien pour l’utilisateur
             dgv_questions.Columns["IDQUESTION"].Visible = false;

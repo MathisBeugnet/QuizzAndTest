@@ -1,17 +1,16 @@
-﻿using System;
+﻿using QuizzAndTest.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySqlConnector;
-using QuizzAndTest.Model;
 
 namespace QuizzAndTest.Controllers
 {
-    class Difficulte
+    public class Difficulte
     {
         public DataTable GetListeDifficulte()
         {
@@ -41,6 +40,5 @@ namespace QuizzAndTest.Controllers
             conn.MySqlCo = null;
             return dtListeDifficulte;
         }
-
     }
 }
